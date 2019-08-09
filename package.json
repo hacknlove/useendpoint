@@ -1,0 +1,22 @@
+{
+  "name": "useendpoint",
+  "version": "1.0.0",
+  "description": "react hook to use an endpoint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hacknlove/useendpoint.git"
+  },
+  "author": "Antonio Fernández Porrúa <antonio@hacknlove.org> (https://pykiss.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hacknlove/useendpoint/issues"
+  },
+  "homepage": "https://github.com/hacknlove/useendpoint#readme",
+  "devDependencies": {
+    "eslint": "^6.1.0"
+  }
+}
