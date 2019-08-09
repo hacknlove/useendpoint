@@ -1,10 +1,13 @@
 {
-  "name": "useendpoint",
+  "name": "@hacknlove/useendpoint",
   "version": "1.0.0",
   "description": "react hook to use an endpoint",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -18,5 +21,10 @@
   "homepage": "https://github.com/hacknlove/useendpoint#readme",
   "devDependencies": {
     "eslint": "^6.1.0"
+  },
+  "dependencies": {
+    "@hacknlove/fetchhelper": "^1.1.0",
+    "isdifferent": "^1.0.0",
+    "react": "^16.9.0"
   }
 }

@@ -21,6 +21,9 @@ async function checkEndPoint (fethParameters, value, set) {
  * @param {function} interval, the interval between fetches
  */
 function useEndpoint (fethParameters, first, interval = 3000) {
+  if (!Array.isArray(fethParameters)) {
+    fethParameters = [fethParameters, {}]
+  }
   const [value, set] = useState([first])
 
   function refresh () {
