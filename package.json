@@ -1,6 +1,6 @@
 {
   "name": "@hacknlove/useendpoint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react hook to use an endpoint",
   "main": "index.js",
   "scripts": {
@@ -22,9 +22,11 @@
   "devDependencies": {
     "eslint": "^6.1.0"
   },
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
   "dependencies": {
     "@hacknlove/fetchhelper": "^1.1.0",
-    "isdifferent": "^1.0.0",
-    "react": "^16.9.0"
+    "isdifferent": "^1.0.0"
   }
 }
