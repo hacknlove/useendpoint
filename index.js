@@ -26,7 +26,9 @@ function useEndpoint (fethParameters, first, interval = 3000) {
   function refresh () {
     checkEndPoint(fethParameters, value, set)
   }
-  refresh()
+  useState(() => {
+    refresh()
+  })
   useEffect(() => {
     const interval = setInterval(refresh, 30000)
     return () => clearInterval(interval)
