@@ -3,8 +3,11 @@
   "version": "1.0.2",
   "description": "react hook to use an endpoint",
   "main": "index.js",
+  "files": [
+    "/index.js"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava --watch"
   },
   "publishConfig": {
     "access": "public"
@@ -20,7 +23,13 @@
   },
   "homepage": "https://github.com/hacknlove/useendpoint#readme",
   "devDependencies": {
-    "eslint": "^6.1.0"
+    "@babel/preset-react": "^7.0.0",
+    "ava": "^2.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint": "^6.1.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.9.0"
   },
   "peerDependencies": {
     "react": "^16.8.0"
@@ -28,5 +37,14 @@
   "dependencies": {
     "@hacknlove/fetchhelper": "^1.1.0",
     "isdifferent": "^1.0.0"
+  },
+  "ava": {
+    "babel": {
+      "testOptions": {
+        "presets": [
+          "@babel/preset-react"
+        ]
+      }
+    }
   }
 }
