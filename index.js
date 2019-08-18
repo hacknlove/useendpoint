@@ -8,9 +8,10 @@ const fetchHelper = require('@hacknlove/fetchhelper')
  * @param {function} set function to set the new value
  */
 async function checkEndPoint (fethParameters, value, set) {
-  const [response, error] = await fetchHelper(fethParameters)
-  if (isDifferent(value, [response, error])) {
-    set([response, error])
+  const response = await fetchHelper(fethParameters)
+  if (isDifferent(value, response)) {
+    set(value)
+    return true
   }
 }
 
@@ -21,18 +22,23 @@ async function checkEndPoint (fethParameters, value, set) {
  * @param {function} interval, the interval between fetches
  */
 function useEndpoint (fethParameters, first, interval = 3000) {
-  const [value, set] = useState([first])
+  const [value, set] = useState([first, undefined])
+
+  useState(() => {
+    if (!checkEndPoint(fethParameters, value, set)) {
+      set
+    }
+  })
 
   function refresh () {
     checkEndPoint(fethParameters, value, set)
   }
-  useState(() => {
-    refresh()
-  })
+
   useEffect(() => {
-    const interval = setInterval(refresh, 30000)
-    return () => clearInterval(interval)
-  })
+    var i = setInterval(refresh, interval)
+    return () => clearInterval(i)
+  }, [value])
+
   return [value[0], refresh, value[1]]
 }
 
