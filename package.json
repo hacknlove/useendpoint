@@ -23,14 +23,21 @@
   },
   "homepage": "https://github.com/hacknlove/useendpoint#readme",
   "devDependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.5.5",
+    "@testing-library/react-hooks": "^2.0.1",
     "ava": "^2.2.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-standard": "^4.0.0",
     "react": "^16.8.0",
-    "react-dom": "^16.9.0",
-    "sinon": "^7.4.1"
+    "react-test-renderer": "^16.9.0"
   },
   "peerDependencies": {
     "react": "^16.8.0"
@@ -40,6 +47,10 @@
     "isdifferent": "^1.0.0"
   },
   "ava": {
+    "require": [
+      "@babel/register",
+      "@babel/polyfill"
+    ],
     "babel": {
       "testOptions": {
         "presets": [
