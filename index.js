@@ -1,23 +1,6 @@
 const { useState, useEffect } = require('react')
 const isDifferent = require('isdifferent')
 const fetchHelper = require('@hacknlove/fetchhelper')
-/**
- * Does the fetch and sets the new value if isDifferent
- * @param {array [url, options]} fethParameters parameter for call the fetch function
- * @param {*} value current value
- * @param {function} set function to set the new value
- */
-
-function checkEndPoint (fethParameters, value, set) {
-  return fetchHelper(fethParameters).then(response => {
-    if (isDifferent(value, response)) {
-      set(response)
-      return true
-    }
-  }).catch(error => {
-    throw error
-  })
-}
 
 /**
  * Fetch a url periodically and update the value if changes
@@ -30,14 +13,28 @@ function useEndpoint (fethParameters, first, interval = 3000) {
     setTimeout(refresh, 0)
     return [first, undefined]
   })
+  var cancelled = false
 
-  function refresh () {
-    checkEndPoint(fethParameters, value, set)
+  async function refresh () {
+    const response = await fetchHelper(fethParameters)
+    if (cancelled) {
+      return
+    }
+    if (isDifferent(value, response)) {
+      return set(response)
+    }
   }
 
   useEffect(() => {
-    var i = setInterval(refresh, interval)
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
+  useEffect(() => {
+    var i = setInterval(() => {
+      refresh()
+    }, interval)
     return () => {
       clearInterval(i)
     }
