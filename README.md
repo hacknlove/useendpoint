@@ -1,4 +1,5 @@
 # useendpoint
+![coverage 75%](https://img.shields.io/badge/coverage-75%25-brightgreen)
 
 ## Install
 ```
@@ -32,13 +33,10 @@ ReactDOM.render(
 
 ### `useendpoint(fetchOptions, first, interval)`
 
-
 #### Parameters
 * `fetchOptions` are the parameters that you want to pass to fetch. It could be just `url`, or an array with `[url, options]`
 * `first` the initial value, until fetch is completed.
 * `interval` miliseconds between fetchs
-
-**warning** The interval starts again every component refresh
 
 #### Return
 Return `[value, refresh, error]`
@@ -46,3 +44,13 @@ Return `[value, refresh, error]`
 * `value` The current value returned by fetch
 * `refresh` function that force the fetch
 * `error` The error returned by fetch, in that case.
+
+
+## test this module
+
+```
+git clone https://github.com/hacknlove/useendpoint
+cd useendpoint
+npm install
+npm test
+```
